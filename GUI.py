@@ -30,14 +30,9 @@ def train_model():
 
     train_df[cat_df.columns] = cat_df.copy()
 
-    # Resampling
+    # # Resampling
     X = train_df.values
     y = train.stroke.values
-
-    rus = RandomOverSampler(random_state=0)
-    X_resampled, y_resampled = rus.fit_resample(X, y)
-
-    class_counts = {i: len(y_resampled[y_resampled == i]) for i in np.unique(y_resampled)}
 
     # Splitting Data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -98,7 +93,7 @@ def collect_and_predict():
 
 def create_gui():
     root = tk.Tk()
-    root.title("Input Collector")
+    root.title("Stroke Risk Predictor")
 
     global entries
     entries = []
