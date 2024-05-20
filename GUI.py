@@ -99,29 +99,33 @@ def collect_and_predict():
 
 def create_gui():
     root = tk.Tk()
-    root.title("Input Collector")
+    root.title("Stroke Predictor")
 
     global entries
     entries = []
 
     labels = [
-        'gender', 'age', 'hypertension (0 for No, 1 for Yes)', 'heart_disease (0 for No, 1 for Yes)',
-        'ever_married (0 for No, 1 for Yes)', 'work_type', 'Residence_type',
-        'avg_glucose_level', 'bmi', 'smoking_status'
+        'gender (1 for Male, 0 for Female)',
+        'age',
+        'hypertension (0 for No, 1 for Yes)',
+        'heart_disease (0 for No, 1 for Yes)',
+        'ever_married (0 for No, 1 for Yes)',
+        'work_type (0 for Govt, 1 for Never-worked, 2 for Private, 3 for Self-employed, 4 for Children)',
+        'Residence_type (0 for Rural, 1 for Urban)',
+        'avg_glucose_level',
+        'bmi',
+        'smoking_status (0 for Unknown, 1 for Formerly Smoked, 2 for Never Smoked, 3 for Smoke)'
     ]
-    max_label_length = max(len(label) for label in labels)
 
     for i, label_text in enumerate(labels):
-        frame = tk.Frame(root, padx=10, pady=10)
-        frame.pack(anchor='w', fill='x')
-        label = tk.Label(frame, text=f"{label_text}:", width=max_label_length, anchor='w')
-        label.pack(side=tk.LEFT, padx=5)
-        entry = tk.Entry(frame)
-        entry.pack(side=tk.LEFT, fill='x', expand=True, padx=5)
+        label = tk.Label(root, text=f"{label_text}:")
+        label.grid(row=i, column=0, padx=5, pady=5, sticky='w')
+        entry = tk.Entry(root)
+        entry.grid(row=i, column=1, padx=5, pady=5, sticky='w')
         entries.append(entry)
 
     submit_button = tk.Button(root, text="Submit", command=collect_and_predict)
-    submit_button.pack(pady=20)
+    submit_button.grid(row=len(labels), columnspan=2, pady=20)
 
     root.mainloop()
 
