@@ -105,9 +105,16 @@ def create_gui():
     entries = []
 
     labels = [
-        'gender', 'age', 'hypertension (0 for No, 1 for Yes)', 'heart_disease (0 for No, 1 for Yes)',
-        'ever_married (0 for No, 1 for Yes)', 'work_type', 'Residence_type',
-        'avg_glucose_level', 'bmi', 'smoking_status'
+        'gender (1 for Male, 0 for Female)',
+        'age',
+        'hypertension (0 for No, 1 for Yes)',
+        'heart_disease (0 for No, 1 for Yes)',
+        'ever_married (0 for No, 1 for Yes)',
+        'work_type (0 for Govt, 1 for Never-worked, 2 for Private, 3 for Self-employed, 4 for Children)',
+        'Residence_type (0 for Rural, 1 for Urban)',
+        'avg_glucose_level',
+        'bmi',
+        'smoking_status (0 for Unknown, 1 for Formerly Smoked, 2 for Never Smoked, 3 for Smoke)'
     ]
     max_label_length = max(len(label) for label in labels)
 
