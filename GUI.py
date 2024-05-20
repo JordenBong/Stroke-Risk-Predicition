@@ -38,7 +38,6 @@ def train_model():
     X_resampled, y_resampled = rus.fit_resample(X, y)
 
     class_counts = {i: len(y_resampled[y_resampled == i]) for i in np.unique(y_resampled)}
-    print(f'Instances of the class after re-sampling : {tuple(class_counts.items())}')
 
     # Splitting Data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
